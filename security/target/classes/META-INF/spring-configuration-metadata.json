@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "secure.ignored",
+      "type": "shop.tigeryam.config.IgnoreUrlsConfig",
+      "sourceType": "shop.tigeryam.config.IgnoreUrlsConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "secure.ignored.urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "shop.tigeryam.config.IgnoreUrlsConfig"
+    }
+  ],
+  "hints": []
+}
