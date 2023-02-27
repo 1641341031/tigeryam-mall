@@ -1,0 +1,17 @@
+shop\tigeryam\util\MybatisPlusGenerator.class
+shop\tigeryam\mapper\UmsAdminMapper.class
+shop\tigeryam\entity\UmsUserLoginLog.class
+shop\tigeryam\entity\PmsProductStock.class
+shop\tigeryam\mapper\TCarouselMapper.class
+shop\tigeryam\entity\TCarousel.class
+shop\tigeryam\entity\UmsAdmin.class
+shop\tigeryam\mapper\PmsProductStockMapper.class
+shop\tigeryam\service\impl\UmsUserLoginLogServiceImpl.class
+shop\tigeryam\service\IUmsUserLoginLogService.class
+shop\tigeryam\entity\PmsProduct.class
+shop\tigeryam\entity\PmsProductCategory.class
+shop\tigeryam\entity\UmsUser.class
+shop\tigeryam\mapper\UmsUserMapper.class
+shop\tigeryam\mapper\PmsProductCategoryMapper.class
+shop\tigeryam\mapper\UmsUserLoginLogMapper.class
+shop\tigeryam\mapper\PmsProductMapper.class
