@@ -12,11 +12,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import shop.tigeryam.admin.dao.UmsAdminRoleRelationDao;
 import shop.tigeryam.admin.domain.AdminUserDetails;
 import shop.tigeryam.admin.service.IUmsAdminService;
 import shop.tigeryam.entity.UmsAdmin;
+import shop.tigeryam.entity.UmsRole;
 import shop.tigeryam.mapper.UmsAdminMapper;
 import shop.tigeryam.util.JwtTokenUtil;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -27,6 +31,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private  UmsAdminMapper umsAdminMapper;
+    @Autowired
+    private UmsAdminRoleRelationDao adminRoleRelationDao;
 
     public UmsAdmin getByUsername(String username){
         QueryWrapper<UmsAdmin> userQueryWrapper = new QueryWrapper<>();
@@ -64,5 +70,22 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
             log.warn("登录异常:{}", e.getMessage());
         }
         return token;
+    }
+
+    @Override
+    public UmsAdmin getAdminByUsername(String username) {
+        QueryWrapper<UmsAdmin> umsAdminQueryWrapper = new QueryWrapper<>();
+        umsAdminQueryWrapper.eq("user_name", username); // 要查看数据库里面的字段
+        List<UmsAdmin> umsAdmins = umsAdminMapper.selectList(umsAdminQueryWrapper);
+        if (umsAdmins != null && umsAdmins.size() > 0){
+            UmsAdmin admin = umsAdmins.get(0);
+            return admin;
+        }
+        return null;
+    }
+
+    @Override
+    public List<UmsRole> getRoleList(Long adminId) {
+        return adminRoleRelationDao.getRoleList(adminId);
     }
 }

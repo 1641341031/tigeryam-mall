@@ -70,9 +70,6 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.7.4" level="project" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt:0.9.1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4.2" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.4" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: com.github.penggle:kaptcha:2.3.2" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.jhlabs:filters:2.0.235-1" level="project" />
@@ -92,10 +89,13 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.23" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:jakarta.mail:1.6.7" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-actuator:2.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator-autoconfigure:2.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator:2.7.5" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.9.5" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.latencyutils:LatencyUtils:2.0.3" level="project" />

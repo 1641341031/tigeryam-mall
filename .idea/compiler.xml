@@ -9,9 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="security" />
         <module name="common" />
-        <module name="portal" />
         <module name="admin" />
         <module name="generator" />
+        <module name="portal" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

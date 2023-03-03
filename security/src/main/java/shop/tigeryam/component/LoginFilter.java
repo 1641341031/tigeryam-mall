@@ -33,7 +33,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         // 获得 session 中的 验证码值
         String sessionVerifyCode = (String) session.getAttribute("verify_code");
         // 判断请求格式是否是 JSON
-        if (request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE) || request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE)) {
+        if (request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE ) || request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE)) {
             Map<String, String> loginData = new HashMap<>();
             try {
                 loginData = new ObjectMapper().readValue(request.getInputStream(), Map.class);

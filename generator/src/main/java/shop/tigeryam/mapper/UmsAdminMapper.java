@@ -1,5 +1,6 @@
 package shop.tigeryam.mapper;
 
+import org.springframework.stereotype.Component;
 import shop.tigeryam.entity.UmsAdmin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 

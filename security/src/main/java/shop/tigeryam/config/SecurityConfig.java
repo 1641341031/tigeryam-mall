@@ -70,15 +70,19 @@ public class SecurityConfig {
                 .disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                // 自定义权限拒绝处理类
                 .and()
+                // 自定义权限拒绝处理类
                 .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler)
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
+                .and()
+                .apply(MyCustomDsl.customDsl())
                 // 自定义权限拦截器JWT过滤器
                 .and()
-                .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                .addFilterAt(loginFilter(authenticationManager(httpSecurity.getSharedObject(AuthenticationConfiguration.class))), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+
+
+
         //有动态权限配置时添加动态权限校验过滤器
         if(dynamicSecurityService!=null){
             registry.and().addFilterBefore(dynamicSecurityFilter, FilterSecurityInterceptor.class);
@@ -86,22 +90,9 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
-
-
-    LoginFilter loginFilter(AuthenticationManager authenticationManager) throws Exception {
-        LoginFilter loginFilter = new LoginFilter(authenticationManager);
-        loginFilter.setFilterProcessesUrl("/login");
-        loginFilter.setUsernameParameter("username");
-        loginFilter.setPasswordParameter("password");
-//        loginFilter.setAuthenticationManager();
-        loginFilter.setAuthenticationSuccessHandler(new MyAuthenticationSuccessHandler());
-        loginFilter.setAuthenticationFailureHandler(new MyAuthenticationFailureHandler());
-        return loginFilter;
-    }
+//    @Bean
+//    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+//        return authenticationConfiguration.getAuthenticationManager();
+//    }
 
 }
