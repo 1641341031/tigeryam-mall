@@ -8,14 +8,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import shop.tigeryam.component.*;
+
+import java.io.PrintWriter;
 
 
 /**
@@ -54,16 +59,16 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .logoutSuccessHandler((req, resp, authentication) -> {
-//                    resp.setContentType("application/json;charset=utf-8");
-//                    PrintWriter out = resp.getWriter();
-//                    out.write("注销成功");
-//                    out.flush();
-//                    out.close();
-//                })
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessHandler((req, resp, authentication) -> {
+                    resp.setContentType("application/json;charset=utf-8");
+                    PrintWriter out = resp.getWriter();
+                    out.write("注销成功");
+                    out.flush();
+                    out.close();
+                })
                 // 关闭跨站请求防护及不使用session
                 .and()
                 .csrf()
@@ -75,8 +80,8 @@ public class SecurityConfig {
                 .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler)
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
-                .and()
-                .apply(MyCustomDsl.customDsl())
+//                .and()
+//                .apply(MyCustomDsl.customDsl())
                 // 自定义权限拦截器JWT过滤器
                 .and()
                 .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
@@ -89,6 +94,8 @@ public class SecurityConfig {
         }
         return httpSecurity.build();
     }
+
+
 
 //    @Bean
 //    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {

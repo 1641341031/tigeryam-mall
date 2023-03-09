@@ -1,6 +1,7 @@
 package shop.tigeryam.component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -20,7 +21,9 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         Object principal = authentication.getPrincipal();
         response.setContentType("application/json;charset=utf-8");
         PrintWriter out = response.getWriter();
-        out.write(new ObjectMapper().writeValueAsString(principal));
+        ObjectMapper mapper =  new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        out.write(mapper.writeValueAsString(principal));
         out.flush();
         out.close();
     }

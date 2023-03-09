@@ -3,6 +3,8 @@ package shop.tigeryam.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -50,8 +50,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
             if (StringUtils.isEmpty(password)) {
                 throw new AuthenticationServiceException("密码不能为空");
             }
-            UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
-                    username, password);
+            UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
             setDetails(request, authRequest);
             return this.getAuthenticationManager().authenticate(authRequest);
         } else {

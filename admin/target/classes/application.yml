@@ -15,7 +15,8 @@ secure:
     urls:
       - /druid/**
       - /actuator/**
-      - /admin/**
+      - /admin/login
 mybatis-plus:
   mapper-locations:
     - classpath*:*.xml
+    - classpath:dao/*.xml

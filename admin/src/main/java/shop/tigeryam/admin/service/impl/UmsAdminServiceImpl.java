@@ -75,7 +75,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     @Override
     public UmsAdmin getAdminByUsername(String username) {
         QueryWrapper<UmsAdmin> umsAdminQueryWrapper = new QueryWrapper<>();
-        umsAdminQueryWrapper.eq("user_name", username); // 要查看数据库里面的字段
+        umsAdminQueryWrapper.eq("username", username); // 要查看数据库里面的字段
         List<UmsAdmin> umsAdmins = umsAdminMapper.selectList(umsAdminQueryWrapper);
         if (umsAdmins != null && umsAdmins.size() > 0){
             UmsAdmin admin = umsAdmins.get(0);
