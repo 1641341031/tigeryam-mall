@@ -17,6 +17,8 @@ public interface IUmsAdminService extends IService<UmsAdmin> {
      */
     String login(String username, String password);
 
+
+
     UserDetails loadUserByUsername(String username);
 
     /**

@@ -1,11 +1,10 @@
 package shop.tigeryam.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.InterceptorIgnore;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * <p>
@@ -13,15 +12,12 @@ import java.util.List;
  * </p>
  *
  * @author tigeryam
- * @since 2022-12-10
+ * @since 2023-03-27
  */
 @TableName("pms_product_category")
 public class PmsProductCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @TableField(exist = false)
-    private List<PmsProductCategory> children;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
@@ -56,11 +52,13 @@ public class PmsProductCategory implements Serializable {
      */
     private String image;
 
-    public List<PmsProductCategory> getChildren() {
+    private Object children;
+
+    public Object getChildren() {
         return children;
     }
 
-    public void setChildren(List<PmsProductCategory> children) {
+    public void setChildren(Object children) {
         this.children = children;
     }
 

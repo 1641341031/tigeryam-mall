@@ -16,6 +16,7 @@ secure:
       - /druid/**
       - /actuator/**
       - /admin/login
+      - /verify-code
 mybatis-plus:
   mapper-locations:
     - classpath*:*.xml

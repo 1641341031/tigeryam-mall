@@ -1,7 +1,7 @@
 package shop.tigeryam.service;
 
-import shop.tigeryam.entity.PmsProductCategory;
 import com.baomidou.mybatisplus.extension.service.IService;
+import shop.tigeryam.entity.PmsProductCategory;
 
 import java.util.List;
 

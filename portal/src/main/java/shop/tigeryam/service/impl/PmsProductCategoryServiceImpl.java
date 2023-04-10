@@ -1,12 +1,13 @@
 package shop.tigeryam.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
 import shop.tigeryam.entity.PmsProductCategory;
 import shop.tigeryam.mapper.PmsProductCategoryMapper;
 import shop.tigeryam.service.IPmsProductCategoryService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -15,10 +15,10 @@ import java.io.IOException;
 @Slf4j
 public class VerifyCodeController {
     @Autowired
-    private IVerifyCodeService verifyCodeServiceIpml;
+    private IVerifyCodeService verifyCodeService;
 
     @GetMapping("/verify-code")
     public void VerifyCode(HttpServletResponse resp, HttpSession session) throws IOException {
-       verifyCodeServiceIpml.getVerifyCode(resp, session);
+       verifyCodeService.getVerifyCode(resp, session);
     }
 }

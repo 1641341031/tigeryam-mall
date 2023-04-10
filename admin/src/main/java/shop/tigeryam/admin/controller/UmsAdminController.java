@@ -16,6 +16,7 @@ import shop.tigeryam.api.CommonResult;
 import shop.tigeryam.entity.UmsAdmin;
 import shop.tigeryam.entity.UmsRole;
 
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +41,13 @@ public class UmsAdminController {
      */
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public CommonResult login(@RequestBody LoginParam loginParam){
+    public CommonResult login(@RequestBody LoginParam loginParam, HttpSession session){
+        if(loginParam.getCode() != null){
+            String verify_code = (String)session.getAttribute("verify_code");
+            if(!loginParam.getCode().equals(verify_code)){
+                return CommonResult.validateFailed("验证码有误！");
+            }
+        }
         String token = umsAdminService.login(loginParam.getUsername(), loginParam.getPassword());
         if(token == null){
             return CommonResult.validateFailed("用户名或密码有误");

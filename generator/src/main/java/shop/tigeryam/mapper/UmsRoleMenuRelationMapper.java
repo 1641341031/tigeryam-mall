@@ -1,5 +1,6 @@
 package shop.tigeryam.mapper;
 
+import org.springframework.stereotype.Repository;
 import shop.tigeryam.entity.UmsRoleMenuRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author tigeryam
  * @since 2023-03-01
  */
+@Repository
 public interface UmsRoleMenuRelationMapper extends BaseMapper<UmsRoleMenuRelation> {
 
 }
